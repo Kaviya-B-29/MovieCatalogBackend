@@ -1,32 +1,51 @@
-# 🎬 Movie Catalog Frontend
+🎬 Movie Catalog Backend
 
-A responsive movie and series discovery application built with **React** and **Vite**, allowing users to search movies/series, view details, manage favorites, and maintain a watchlist.
-
-This frontend consumes a custom backend API which proxies data from the OMDb API and handles watchlist persistence.
+A Node.js + Express backend service for the Movie Catalog application.  
+This backend proxies movie data from the OMDb API and provides REST APIs to manage a persistent watchlist using MongoDB.
 
 ---
 
 ## 🚀 Features
 
-- Search movies and TV series by title
-- View detailed movie information
-- Pagination support for search results
-- Add / remove movies from **Favorites** (local state)
-- Add movies to **Watchlist** (backend-persisted)
-- Dedicated Watchlist page
-- Responsive UI using Tailwind CSS
-- Client-side routing with React Router
+- Proxy integration with OMDb API
+- Movie and series search API
+- Movie details API
+- Watchlist CRUD operations
+- MongoDB persistence
+- Environment variable support
+- CORS-enabled for frontend communication
 
 ---
 
 ## 🛠 Tech Stack
 
-- React (Vite)
-- JavaScript (ES6+)
-- React Router v6
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
 - Axios
-- Tailwind CSS
+- dotenv
+- nodemon
 
 ---
 
+## 📂 API Endpoints
 
+### 🎥 Movies
+- `GET /api/movies/search`
+- `GET /api/movies/:id`
+
+### 📌 Watchlist
+- `POST /api/watchlist`
+- `GET /api/watchlist`
+- `DELETE /api/watchlist/:id`
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env` file in the `backend/` folder:
+
+```env
+OMDB_API_KEY=your_omdb_api_key
+MONGO_URI=mongodb://127.0.0.1:27017/moviecatalog
